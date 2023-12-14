@@ -2,19 +2,106 @@
     font-family: 'Nunito';
     margin: 0;
     padding: 0;
+    color: rgb(136, 200, 255);
 }
-
+.bg-color{
+    color: rgb(0, 60, 83)
+}
+.app-background{
+    background-color: rgb(0, 0, 0);
+    position: relative;
+}
 #title{
     
     height: 103vh;
-    width: 100vw;
+    width: 100%;
     position: relative;
 }
 
 #canvas-title{
     background: linear-gradient(to bottom,  rgb(0, 60, 83), rgb(0, 0, 0));
-    
+    background-position: fixed;
     position: absolute;
     height: 100%;
     width: 100%;
+}
+
+#header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+#nav-bar{
+    display: flex;
+    
+
+}
+#nav-items{
+    display: flex;
+
+    list-style: none;
+    
+}
+.container-wrapper{
+    display: flex;
+    position: relative;
+    top:0;
+    align-content: center;
+    justify-content: center;;
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 15, 20),black));
+    transition: top 0.3s ease;
+}
+.container{
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0,200,200,.1);
+    border-color: rgba(0,200,200,.8);
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+}
+.left-border{
+    
+    border-right: 1px solid;
+    border-left: 5px solid;
+}
+.right-border{
+    
+    border-right: 5px solid;
+    border-left: 1px solid;
+}
+a{
+    text-decoration: none; 
+    padding:10px;
+    
+}
+
+.first-color{
+    color: #FEA001;
+}
+.second-color{
+    color: rgb(0, 29, 41)
+}
+.third-color{
+    color: #00FFF3;
+}
+
+h2{
+    text-align: center;
+    margin: 15px;
+    color: #00FFF3;
+    background-color:rgba(0,200,200,.1);
+    
+    border: 1px solid;
+    border-color: rgba(0,200,200,.8);
+    border-radius: 20px;
+}
+h3{
+    color: #FEA001;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+p{  
+    color: rgb(200, 201, 255);
+    margin: 0px 10px 10px 10px;
 }

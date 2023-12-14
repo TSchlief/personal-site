@@ -72,7 +72,7 @@ function createCharacters() {
         textWidth += (textScale/10)*(c.measureText(title[i]).width) -0.3;
     }
     
-    origin.y = canvas.height/2;
+    origin.y = canvas.height/3;
     origin.x = (canvas.width/2) - (textWidth/2);
     let charX = origin.x;
     for (let i = 0; i < title.length; i++) {

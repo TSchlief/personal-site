@@ -41,10 +41,10 @@ class Character{
         let snap = 25;
         if(this.group === 1){
             deceleration = 1.5;
-            snap = 5;
+            snap = 8;
         }
         if(this.group === 2){
-            deceleration = 1.5;
+            deceleration = 1.2;
             snap = 15;
         }
        

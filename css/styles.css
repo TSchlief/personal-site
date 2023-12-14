@@ -6,12 +6,14 @@
 
 #title{
     
-    height: 100vh;
+    height: 100.01vh;
     width: 100vw;
     position: relative;
 }
 
 #canvas-title{
+    background: linear-gradient(to bottom,  rgb(0, 60, 83), rgb(0, 0, 0));
+    
     position: absolute;
     height: 100%;
     width: 100%;

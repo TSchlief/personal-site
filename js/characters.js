@@ -1,62 +1,80 @@
 class Character{
-    constructor(character, origin, font, boundary){
+    constructor(character, origin, font, boundary, group, home){
+        
         this.character = character;
         this.origin = origin;
         this.font = font;
         this.boundary = boundary;
+        this.group= group;
+        this.home = home;
+        this.colors = {first: '#FEA001', second: '#FEA001', third: '#00FFF3'}
         this.location = {x: origin.x, y: origin.y};
-        this.rotation = 0;
-        this.velocity = {x:Math.random()*5, y:Math.random()*5};
-        this.maxVelocity = 8;
-        this.home = false;
-    }
-
-    react(mouseCoords){
-        if(this.character === "T"){
-        }
-        let diffX = this.location.x - mouseCoords.x;
-        let diffY = this.location.y - mouseCoords.y;
-        let strength = Math.sqrt((diffX**2) + (diffY**2))
-
-
-
-       
-            this.accelerate({y: -1*diffY/(strength**1.6), x: -1*diffX/(strength**1.6)})
-       
-    }
-
-    setHome(){
-        if(this.home){
-            this.home = false;
-            this.velocity = {x:Math.random()*5, y:Math.random()*5};
+        if(home === false){
+            this.velocity = {x:this.randomVelocity(4), y:this.randomVelocity(4)};
         }
         else{
+            this.velocity = {x:0, y:0};
+        }
+    }
+
+    randomVelocity(speed){
+        let rand = 1
+        if(Math.random() < 0.5){
+            rand = -1;
+        }
+        rand *= Math.random();
+        return rand*speed;
+    }
+
+    setHome(home){
+        if(home === true){
             this.home = true;
+        }
+        else{
+            this.velocity = {x:this.randomVelocity(4), y:this.randomVelocity(4)};
+            this.home = false;
         }
     }
 
     returnHome(){
-        let diffX = this.origin.x - this.location.x;
-        let diffY = this.origin.y - this.location.y;
-     
-        if(Math.abs(diffX) > 2){
-            this.velocity.x += diffX/1000;
+        let deceleration = 1.1;
+        let snap = 25;
+        if(this.group === 1){
+            deceleration = 1.5;
+            snap = 5;
         }
-        else{
+        if(this.group === 2){
+            deceleration = 1.5;
+            snap = 15;
+        }
+       
+
+        this.velocity.x = this.velocity.x/deceleration;
+        this.velocity.y = this.velocity.y/deceleration;
+
+        let locDiffY = this.origin.y - this.location.y;
+        let locDiffX = this.origin.x - this.location.x;
+
+        this.location.x += locDiffX/snap;
+        this.location.y += locDiffY/snap;
+
+        if(this.velocity.x < 0.01){
             this.velocity.x = 0;
         }
-        if(Math.abs(diffY) > 2){
-            this.velocity.y += diffY/1000;
-        }
-        else{
+        if(this.velocity.y < 0.01){
             this.velocity.y = 0;
         }
-
-        this.location.y += (this.origin.y - this.location.y)/20;
-        this.location.x += (this.origin.x - this.location.x)/20;
         if(this.velocity.x === 0){
-        } if(this.velocity.y === 0){
-            this.location.y += (this.origin.y - this.location.y)/15;
+            this.location.x += locDiffX/snap;
+        } 
+        if(this.velocity.y === 0){
+            this.location.y += locDiffY/snap;
+        }
+        if(Math.abs(locDiffX) < 0.1 ){
+            this.location.x = this.origin.x;
+        }
+        if(Math.abs(locDiffY) < 0.1 ){
+            this.location.y = this.origin.y;
         }
     }
     
@@ -66,9 +84,6 @@ class Character{
 
 
     draw(c) {
-        if(this.character==="T"){
-            console.log(this.location, this.velocity)
-        }
         c.save();
         c.translate(this.location.x, this.location.y);
       
@@ -78,8 +93,14 @@ class Character{
     
         const offsetX = -0.5 * textWidth;
         const offsetY = 0.5 * parseInt(c.font, 10); 
-      
-        c.fillStyle = 'black';
+        c.fillStyle = this.colors.first;
+        if(this.group === 2){
+            c.fillStyle = this.colors.second;
+        }
+        else if(this.group === 3){
+            c.fillStyle = this.colors.third;
+        }
+        
         c.fillText(this.character, offsetX, offsetY);
         c.restore();
       }
@@ -102,30 +123,25 @@ class Character{
     }
 
     move(){
-        if(this.location.x <= this.boundary.x1 || this.location.x >= this.boundary.x2) {
+        let offset = c.measureText(this.character).width+1;
+        if(this.location.x <= this.boundary.x1 + offset*4 || this.location.x >= this.boundary.x2 - offset) {
             this.velocity.x *= -1;
         }
-        if(this.location.y <= this.boundary.y1 || this.location.y >= this.boundary.y2) {
+        if(this.location.y <= this.boundary.y1 + 10 || this.location.y >= this.boundary.y2 - 30) {
             this.velocity.y *= -1;
         }
         this.location.x += this.velocity.x;
         this.location.y += this.velocity.y;
     }
 
-    update(c, mouseCoords){
+    update(c){
         
         this.move();
         if(this.home){
             this.returnHome();
         }
-        else{
-            
-        }
         this.draw(c);
     }
 }
 
-let char = new Character();
-while(char.rotateTo(1,1) ){
-    console.log(char)
-}
+

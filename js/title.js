@@ -15,6 +15,11 @@ var isTextHome = false;
 function resizeCanvas() {
     console.log("resize")
     let element = document.getElementById("title");
+    let update = false;
+    if(canvas.width !== element.offsetWidth){
+        update = true;
+    }
+
     console.log(canvas.width, origin);
     canvas.width = element.offsetWidth;
     canvas.height = element.offsetHeight;
@@ -29,8 +34,10 @@ function resizeCanvas() {
     else{
         textScale = textScaleOriginal
     }
-    chars = []
-    createCharacters();
+    if(update){
+        chars = []
+        createCharacters();
+    }
 
 }
 resizeCanvas();
@@ -94,7 +101,8 @@ function createCharacters() {
 
  
   }
-  
+
+ 
  
 
 

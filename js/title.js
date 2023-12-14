@@ -40,7 +40,7 @@ function handleScroll(e) {
     console.log(scrollTop)
     let home = true;
 
-    if (scrollTop < 10) {
+    if (scrollTop === 0 ) {
        home = false;
     }
 

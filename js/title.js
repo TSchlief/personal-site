@@ -5,6 +5,7 @@ const title = "Travis Schlief";
 const description = "Junior Developer";
 const quote = "Creating amazing things.";
 var origin = {x:60, y:130};
+var originOffset= -95;
 var chars = [];
 var textWidth = 0; 
 var textScale = 60;
@@ -25,6 +26,7 @@ function resizeCanvas() {
     canvas.height = element.offsetHeight;
     boundary.x2 = element.offsetWidth;
     boundary.y2 = element.offsetHeight;
+    originOffset = 0;
     if(element.offsetWidth < 400){
         textScale = textScaleOriginal/2;
     }
@@ -32,6 +34,7 @@ function resizeCanvas() {
         textScale = textScaleOriginal/1.4;
     }
     else{
+        originOffset = -95;
         textScale = textScaleOriginal
     }
     if(update){
@@ -73,7 +76,8 @@ function createCharacters() {
     }
     
     origin.y = canvas.height/1.5;
-    origin.x = (canvas.width/2) - (textWidth/2);
+    origin.x = (canvas.width/2) - (textWidth/2) + originOffset;
+    
     let charX = origin.x;
     for (let i = 0; i < title.length; i++) {
       
@@ -83,7 +87,7 @@ function createCharacters() {
     }
 
 
-    charX = origin.x-5;
+    charX = origin.x-4;
     for (let i = 0; i < description.length; i++) {
       
       chars.push(new Character(description[i], { x: charX, y: origin.y+textScale }, `${textScale/1.8}px Nunito`, boundary, 2, isTextHome));
@@ -91,7 +95,7 @@ function createCharacters() {
       charX += width;
     }
     
-    charX = origin.x-5;
+    charX = origin.x-4;
     for (let i = 0; i < quote.length; i++) {
       
       chars.push(new Character(quote[i], { x: charX, y: origin.y+textScale*1.8 }, `${textScale/3}px Nunito`, boundary, 3, isTextHome));

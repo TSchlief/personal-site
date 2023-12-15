@@ -10,21 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono&family=Nunito&family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="splash"></div>
     <div class="app-background">
-        <div id="splash"></div>
-        
-        <div id="title">
-            <canvas id="canvas-title"></canvas>
-            <div id="home"></div>
+        <div id="header">
+            <nav id="nav-bar">
+                <ul id="nav-items"></ul>
+            </nav>
+            <ul id="socials"></ul>
         </div>
+        <div class="spacer"></div>
+        <div id="title">
+            <div id="home"></div>
+            
+            <canvas id="canvas-title"></canvas>
+        </div>
+        
         <div id="main">
-            <div id="header">
-                <nav id="nav-bar">
-                    <ul id="nav-items"></ul>
-                </nav>
-                <ul id="socials"></ul>
-            </div>
-            <section class="container-wrapper" id="about">
+            
+            <section class="container-wrapper fade-in" id="about">
                 <div class="container left-border">
                     <h3>I'm Travis, a junior developer who enjoys creating fun and engaging content.</h3>
                     <p>I've been working in the construction industry as a drywall finisher for the last 12 years. I'm a life long learner who finds joy in creating and unraveling intricate puzzles.</p>
@@ -32,7 +35,7 @@
                     <p>In my free time, you'll catch me lost in the art of world-building. Whether it's sketching out maps, creating intricate backstories, or brainstorming unique loot for imaginary dungeons, I find joy in the boundless creativity that comes with crafting entire universes.</p>
                 </div>
             </section>
-            <section class="container-wrapper" id="skills">
+            <section class="container-wrapper fade-in" id="skills">
                 <div class="container right-border">
                     <h3>Languages</h3>
                     <p>Javascript, HTML, CSS, Solidity, Python</p>
@@ -42,17 +45,30 @@
                     <p>Git & Github</p>
                 </div>
             </section>
-            <section id="projects">
-    
+            <section class="container-wrapper fade-in" id="projects">
+                <div class="container left-border">
+                    <h3>Solar System</h3>
+                    <p>Scrolling website that explores the planets in our solar system.</p>
+                </div>
+              
+            </section>
+            <section class="container-wrapper fade-in" id="project2">
+                <div class="container right-border">
+                    <h3>A Mazing Game</h3>
+                    <p>A game where you click tiles to find the end of the maze.</p>
+                </div>
             </section>
         </div>
         
     </div>
+    
     <script src="js/characters.js"></script>
     <script src="js/navBar.js"></script>
     <script src="js/socials.js"></script>
     <script src="js/about.js"></script>
     <script src="js/title.js"></script>
+    <script src="js/fadeIn.js"></script>
     <script src="js/index.js"></script>
+
 </body>
 </html>

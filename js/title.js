@@ -4,7 +4,7 @@ var c = canvas.getContext('2d');
 const title = "Travis Schlief";
 const description = "Junior Developer";
 const quote = "Creating amazing things.";
-var origin = {x:60, y:130};
+var origin = {x:61, y:130};
 var originOffset= -95;
 var chars = [];
 var textWidth = 0; 
@@ -36,6 +36,10 @@ function resizeCanvas() {
     else{
         originOffset = -95;
         textScale = textScaleOriginal
+    }
+
+    if(element.offsetWidth > 992){
+        originOffset = -200;
     }
     if(update){
         chars = []
@@ -76,7 +80,11 @@ function createCharacters() {
     }
     
     origin.y = canvas.height/1.5;
-    origin.x = (canvas.width/2) - (textWidth/2) + originOffset;
+    if(canvas.width >= 675){
+    
+        origin.x = (canvas.width/2) - (textWidth/2) + originOffset;
+    }
+    
     
     let charX = origin.x;
     for (let i = 0; i < title.length; i++) {

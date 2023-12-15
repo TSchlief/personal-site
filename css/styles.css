@@ -23,7 +23,7 @@
     height: 1px;
 }
 #canvas-title{
-    background: linear-gradient(to bottom,  rgb(0, 1, 54), rgb(0, 0, 0));
+    background: linear-gradient(to bottom,  rgb(0, 1, 70), rgb(0, 0, 0));
 
     position: relative;
     height: 100%;
@@ -59,12 +59,12 @@
     padding: 5vh 0;
     align-content: center;
     justify-content: center;;
-    background: radial-gradient(circle,  rgb(0, 1, 54), rgb(0, 0, 0));
+    background: radial-gradient(circle,  rgb(0, 1, 40),rgb(0, 1, 20), rgb(0, 0, 0));
     transition: top 0.3s ease;
 }
 .container{
     flex-basis: 600px;
-    background-color: rgba(0,200,200,.1);
+    background-color: rgba(0,200,255,0.1);
     border-color: rgba(0, 255, 255, 0.9);
     border-radius: 20px;
     margin: 20px;

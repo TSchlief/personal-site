@@ -87,10 +87,18 @@ ul{
     padding-top: 5vh ;
     align-content: center;
     justify-content: center;
-    background: radial-gradient(circle,  rgb(0, 1, 40),rgb(0, 1, 20), rgb(0, 0, 0));
+    
     transition: top 0.3s ease;
 }
-
+.glow{
+    background: linear-gradient(to right, rgb(0, 0, 20),rgb(0, 0, 40),rgb(0, 0, 40), rgb(0, 0, 20));
+}
+.glow:hover{
+    background: linear-gradient(to right, rgb(0, 0, 20),rgb(0, 0, 60),rgb(0, 0, 60), rgb(0, 0, 20));
+}
+.pointer{
+    cursor: pointer;
+}
 .spacer{
     display: block;
     height: 1px;
@@ -98,23 +106,32 @@ ul{
 
 .container{
     flex-basis: 600px;
-    border-color:  rgba(0, 179, 170, 0.9);
-    border-radius: 20px;
     margin: 20px;
     padding: 20px;
 }
 .img-container{
+    
+    flex: 2;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.project-body{
+    flex: 3;
 }
 .left-border{
     border-right: 1px solid;
     border-left: 5px solid;
+    border-color:  rgba(0, 179, 170, 0.9);
+    border-radius: 20px;
 }
 
 .right-border{
     border-right: 5px solid;
     border-left: 1px solid;
+    
+    border-color:  rgba(0, 179, 170, 0.9);
+    border-radius: 20px;
 }
 
 
@@ -132,6 +149,7 @@ ul{
     color: #00FFF3;
     border-radius: 35%;
 }
+
 
 .skill-list{
     display: flex;

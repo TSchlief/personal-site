@@ -28,7 +28,7 @@
         <div id="main">
             
             <section class="container-wrapper fade-in" id="about">
-                <div class="container left-border">
+                <div class="container ">
                     <h3>I'm Travis, a junior developer who enjoys creating fun and engaging content.</h3>
                     <p>I bring 12 years of experience as a drywall finisher in the construction industry, where attention to detail is paramount. In my transition to software development, I apply the same meticulous approach to coding. While my professional background may differ, my commitment to precision and lifelong learning remains constant. I find joy in unraveling new knowledge and leveraging my diverse skill set to excel in the dynamic world of software development.</p>
                     <p>I started learning to code more than five years ago with the goal of creating my own MMO RPG. As I delved into the various components involved in making a game, I discovered that I enjoy coding the most. Since then, I've been consistently working to enhance my coding skills.</p>
@@ -36,7 +36,7 @@
                 </div>
             </section>
             <section class="container-wrapper fade-in" id="skills">
-                <div class="container right-border">
+                <div class="container ">
                     <h3>Languages</h3>
                     <p>Javascript, HTML, CSS, Solidity, Python</p>
                     <h3>Libraries & Frameworks</h3>
@@ -45,27 +45,46 @@
                     <p>Git & Github</p>
                 </div>
             </section>
-
-            <section class="container-wrapper fade-in" id="projects">
+            <div id="projects"></div>
+            <section class="container-wrapper fade-in glow " id="blog" >
                 <div class="container left-border">
-                    <div class="project-container">
-                        <div class="img-container">
-                            <img src="./images/maze.PNG" alt="dwarf planet ceres">
-                        </div>
-                        <div class="project-body">
-                            <h3>A Mazing Game</h3>
-                            <p>A game where you click tiles to find the end of the maze.</p>
-                            <ul class="skill-list">
-                                <li class="skill">JavaScript</li>
-                                <li class="skill">HTML</li>
-                                <li class="skill">CSS</li>
-                            <ul>
+                        <div class="project-container pointer">
+                            <div class="img-container">
+                                <img src="./images/blog.PNG" alt="dwarf planet ceres">
+                            </div>
+                            <div class="project-body">
+                                <h3>PseudoBlog</h3>
+                                <p>A simple blog, powered by Node.js and Express, allows users to post, edit, and delete content with ease. </p>
+                                <ul class="skill-list">
+                                    <li class="skill">JavaScript</li>
+                                    <li class="skill">HTML</li>
+                                    <li class="skill">CSS</li>
+                                <ul>
+                            </div>
                         </div>
                     </div>
-                </div>
             </section>
 
-            <section class="container-wrapper fade-in" id="projects2">
+            <section class="container-wrapper fade-in glow " id="maze" >
+                <div class="container left-border">
+                        <div class="project-container pointer">
+                            <div class="img-container">
+                                <img src="./images/maze.PNG" alt="dwarf planet ceres">
+                            </div>
+                            <div class="project-body">
+                                <h3>A Mazing Game</h3>
+                                <p>A game where you click tiles to find the end of the maze.</p>
+                                <ul class="skill-list">
+                                    <li class="skill">JavaScript</li>
+                                    <li class="skill">HTML</li>
+                                    <li class="skill">CSS</li>
+                                <ul>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <section class="container-wrapper fade-in glow pointer " id="solar">
                 <div class="container right-border">
                     <div class="project-container">
                         <div class="img-container">
@@ -81,15 +100,12 @@
                         </div>
                     </div>
                 </div>
-            
         </div>
-        
     </div>
     
     <script src="./js/characters.js"></script>
     <script src="./js/navBar.js"></script>
     <script src="./js/socials.js"></script>
-    <script src="./js/about.js"></script>
     <script src="./js/title.js"></script>
     <script src="./js/fadeIn.js"></script>
     <script src="./js/index.js"></script>

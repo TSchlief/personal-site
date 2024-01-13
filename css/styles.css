@@ -69,10 +69,13 @@ ul{
 
 #nav-bar{
     display: flex;
+    justify-content: center;
 }
 
 #nav-items{
     display: flex;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 #main{
@@ -180,18 +183,33 @@ a{
     color: #00FFF3;
 }
 
-@media (min-width: 576px) { 
-    .project-container{
-        flex-direction: column;
+@media (min-width: 320px) { 
+    .nav-link{
+        font-size: 1.1rem;
+    }
+}
+@media (min-width: 375px) { 
+    .nav-link{
+        font-size: 1.35rem;
     }
 
-    h3{
-        padding-top: 0;
-    }
+}
+@media (min-width: 576px) { 
+
 }
 
 
 @media (min-width: 768px) { 
+    #nav-bar{
+        display: flex;
+        justify-content:flex-start;
+    }
+    
+    #nav-items{
+        display: flex;
+        padding-left: 10px;
+        padding-bottom: 8px;
+    }
     img{
         max-height: 150px; 
     }

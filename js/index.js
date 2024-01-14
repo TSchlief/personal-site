@@ -1,5 +1,4 @@
 const projects ={
-    solar: "https://travisschlief-solar.surge.sh",
     maze: "https://tschlief.github.io/maze/",
     blog: "https://blog-tschlief.onrender.com/",
     coinMelon: "https://coinmellon.onrender.com/", 

@@ -2,7 +2,7 @@ const projects ={
     maze: "https://tschlief.github.io/maze/",
     blog: "https://blog-tschlief.onrender.com/",
     coinMelon: "https://coinmellon.onrender.com/", 
-    fishing: "https://fishing-app-5f81538c1348.herokuapp.com/"
+    fishing: "https://littlelake.kroppergames.com/"
 };
 
 let keys = Object.keys(projects);

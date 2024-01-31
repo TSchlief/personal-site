@@ -1,6 +1,6 @@
 const parent = document.getElementById('nav-items');
 
-const sections = ["top", "home", "about", "skills", "projects"];
+const sections = ["top", "home", "about", "contact", "skills", "projects"];
 
 let html = "";
 

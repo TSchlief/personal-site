@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travis Schlief</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono&family=Nunito&family=Rubik&display=swap" rel="stylesheet">
+</head>
+<body class="app-background">
+    <header class="container-wrapper fade-in">
+        <div class="container no-padding no-margin ">
+            <a href="index.html#contact" class="nav-button">Back</a>
+        </div>
+    </header>
+    <section class="container-wrapper fade-in" id="contact-page">   
+      
+        <form id="contact-form" class="container" >
+            <div id="contact-form">
+
+                <h1 class="form-title">Contact Me</h1>
+                <p class="form-description">travisschlief@hotmail.com</p>
+                <label class="form-label" for="from">Email:</label>
+                <input id="contact-email" class="form-input left-border" name="from"></input>
+                <label class="form-label" for="text">Message:</label>
+                <textarea  id="contact-text" class="form-input left-border" name="text"  cols="30" rows="8"></textarea>
+                <input type="hidden" name="null" value="null">
+                <div>
+                    <button id="contact-sumbit" class="form-button left-border" type="submit">Submit</button>
+
+                </div>
+            </div>
+
+        </form>
+    </section>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            document.getElementById("contact-sumbit").innerHTML = "Processing";
+
+
+            
+            // Fetch form data
+            const formData = new FormData(this);
+            const urlSearchParams = new URLSearchParams();
+
+            for (const pair of formData.entries()) {
+                urlSearchParams.append(pair[0], pair[1]);
+            }
+
+            // Construct the request object
+            const request = {
+                method: "POST",
+                body: urlSearchParams.toString(),
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            };
+
+            // Construct the URL to which you want to send the POST request
+            const url = "https://littlelake.kroppergames.com/auto-mailer";
+
+            document.getElementById("contact-email").value = "";
+            document.getElementById("contact-text").value = "";
+
+            // Send the POST request
+            fetch(url, request)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    
+                })
+                .then(data => {
+                    // Handle successful response
+                    console.log("Response from server:", data);
+                    window.location.href = "success.html";
+                    // You can optionally redirect or show a success message here
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error("Error:", error);
+                    window.location.href = "fail.html";
+                });
+        });
+    </script>
+ 
+    <script src="./js/fadeIn.js"></script>
+</body>
+</html>
